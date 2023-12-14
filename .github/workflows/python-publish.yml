@@ -31,7 +31,7 @@ jobs:
       - name: Cache dependencies
         uses: actions/cache@main
         with:
-          path: ./pip_Che
+          path:  ~/.gradle/caches
           restore-keys: npm-feature-${{ hashFiles('package-lock.json') }}
       - name: Install dependencies
         run: |
