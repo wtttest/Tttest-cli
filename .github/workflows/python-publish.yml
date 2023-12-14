@@ -30,14 +30,16 @@ jobs:
           python-version: "3.11"
           cache: 'pip'
       - run:  pip install -r requirements.txt
-      
-      - name: Publish package
-        uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
-        with:
-          user: __token__
-          password: ${{ secrets.PYPI_API_TOKEN }}
 
       - name: Build package
           run:|
+            sed -i 's/__version__ = "\(.*\)"/__version__ = "'${{ github.run_number }}.0.1'"/' tttest/version.py
             rm -rf dist
-            python setup.py bdist_wheel && python -m twine upload dist/* --repository testpypi
+            python setup.py bdist_wheel
+            
+      - name: Publish package
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          user: __token__
+          password: ${{ secrets.PYPI_API_TOKEN }}
+          repository-url: https://test.pypi.org/legacy/
