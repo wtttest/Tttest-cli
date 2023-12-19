@@ -131,4 +131,8 @@ setup(
     cmdclass={
         'upload': UploadCommand,
     },
+    package_data={
+        # 包含jinja2的文件
+        '': ['*.jinja2']
+    },
 )

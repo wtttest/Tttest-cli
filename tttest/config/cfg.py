@@ -23,7 +23,7 @@ if '--lang' in sys.argv:
 if l.n is None:
     import locale
 
-    if 'zh_CN' in locale.getdefaultlocale():
-        l.n = l.LANGS['zh']
-    else:
+    if 'en_US' in locale.getdefaultlocale():
         l.n = l.LANGS['en']
+    else:
+        l.n = l.LANGS['zh']
