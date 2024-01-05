@@ -21,6 +21,6 @@ def run():
 
 if __name__ == '__main__':
     dir()
-    mock()
+    # mock()
     # serve()
-    # run()
+    run()
