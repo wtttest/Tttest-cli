@@ -1,0 +1,25 @@
+import peewee
+from tttest.config.db_config import db
+
+
+class {{ class_Name }}(peewee.Model):
+    {% for item in table %}
+    {% if item[1] == 'varchar' %}
+    {{ item[0] }} = peewee.CharField()
+    {% elif item[1] == 'int' %}
+    {{ item[0] }} = peewee.IntegerField()
+    {% elif item[1] == 'date' %}
+    {{ item[0] }} = peewee.DateField()
+    {% elif item[1] == 'decimal' %}
+    {{ item[0] }} = peewee.DecimalField()
+    {% elif item[1] == 'datetime' %}
+    {{ item[0] }} = peewee.DateTimeField()
+    {% endif %}
+    '''
+     Args:{{ item[2] }}
+    '''
+    {% endfor %}
+    class Meta:
+        table_name = '{{ table_Name }}'
+        database = db
+

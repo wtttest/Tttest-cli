@@ -17,7 +17,7 @@ def singleton(cls):
 class YamlRead:
     def __init__(self, file_path='config.yaml'):
         self.file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), file_path)
-        with open(self.file_path, encoding='utf-8') as f:
+        with open(self.file_path) as f:
             self.data = yaml.load(f, Loader=yaml.FullLoader)
 
     def get_data(self):
