@@ -17,7 +17,7 @@ def run():
     parser.add_argument('--model',metavar='table',help=("生成数据库表实体",'create Entity table')[l.n])
 
     parser.add_argument('--path',metavar='project_path',help=("当前项目相对路径",'send project_path')[l.n])
-    
+
     parser.add_argument('--lang', choices=['zh', 'en'],
                         help=("设置工具语言", 'set language')[l.n])
     
@@ -25,13 +25,5 @@ def run():
     if args.new:
         render.create(args.new)
 
-    if args.model and args.path:
-        generator_entity.generate(args.model,args.path)
-
-
-
-    
-    
-
-
-    
+    if args.model:
+        generator_entity.generate(table=args.model, db_config_path=args.path)
