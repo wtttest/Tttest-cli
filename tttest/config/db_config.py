@@ -1,7 +1,6 @@
 import peewee
 from importlib import import_module
 
-
 def init_db(project_name):
 
     cfg = import_module(f'{project_name}.config.cfg')

@@ -16,7 +16,7 @@ def get_table_structure(table_name,project):
 
 
     else:
-           return [[x,get_table_columns(x,project)] for x in table_name.split(',') if x]
+         return [[x,get_table_columns(x,project)] for x in table_name.split(',') if x]
 
 
 def get_table_columns(table_name,project):
