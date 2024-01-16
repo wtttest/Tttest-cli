@@ -18,11 +18,15 @@ class YamlRead:
 
     def __init__(self, config_path):
         self.file_path = config_path
-        current_path = os.path.join(os.getcwd(), 'config')
+        file_path = 'config.yaml'
 
         if config_path is None:
-            file_path = 'config.yaml'
-        self.file_path = os.path.join(current_path, file_path)
+            current_path = os.path.join(os.getcwd(), 'config')
+            self.file_path = os.path.join(current_path, file_path)
+
+        else:
+            current_path = os.path.join(config_path, 'config')
+            self.file_path = os.path.join(current_path, file_path)
 
 
         with open(self.file_path, 'r', encoding="UTF-8", errors='ignore') as f:

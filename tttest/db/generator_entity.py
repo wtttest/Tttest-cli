@@ -19,7 +19,7 @@ def generate(table,project_path,target_path = os.getcwd()):
         new_Dir = os.path.join(current_Dir, structure[0]) + '_mapper.py'
         class_Name = os.path.basename(os.path.join(current_Dir, structure[0].title().replace("_", "")) + 'Mapper')
         table_Name = structure[0]
-        print(new_Dir)
+
         with open(new_Dir, 'w',encoding='utf-8') as f:
 
             result = tpl.render(table=structure[1],class_Name=class_Name,table_Name=table_Name)
