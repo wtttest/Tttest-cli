@@ -25,7 +25,7 @@ def run():
     if args.new:
         render.create(args.new)
 
-    if args.model and args.path:
+    if args.model:
         generator_entity.generate(args.model,args.path)
 
 

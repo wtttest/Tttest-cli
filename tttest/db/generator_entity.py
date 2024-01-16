@@ -5,7 +5,8 @@ import os
 from tttest.db.get_table_structure import get_table_structure
 
 
-def generate(table,project_path):
+def generate(table,project_path,target_path = os.getcwd()):
+    # if  project_path
     project_Name = os.path.basename(project_path)
 
     template_Loader = FileSystemLoader(searchpath=(os.path.dirname(__file__)).replace('\\','/'))
