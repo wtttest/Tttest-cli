@@ -1,0 +1,8 @@
+import peewee
+from config.cfg import get
+
+
+
+db_info = get(key='mysql')
+db = peewee.MySQLDatabase(db_info.get('db'), user=db_info.get('user'), password=db_info.get('password'),
+                              host=db_info.get('host'), port=db_info.get('port'))
